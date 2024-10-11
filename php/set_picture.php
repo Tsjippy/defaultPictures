@@ -1,5 +1,5 @@
 <?php
-namespace SIM\DEFAULTPICTURE;
+namespace SIM\DEFAULTPICTURES;
 use SIM;
 
 /**
