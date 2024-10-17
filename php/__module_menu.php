@@ -9,23 +9,6 @@ DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 //module slug is the same as grandparent folder name
 DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
-add_filter('sim_submenu_description', function($description, $moduleSlug){
-	//module slug should be the same as the constant
-	if($moduleSlug != MODULE_SLUG){
-		return $description;
-	}
-
-	ob_start();
-	?>
-	<p>
-		This module allows you to set a default picture for each category on the website.<br>
-		This picture will be used in case content gets created with this category set and no featured image is set.
-	</p>
-	<?php
-
-	return ob_get_clean();
-}, 10, 2);
-
 add_filter('sim_submenu_options', function($optionsHtml, $moduleSlug, $settings){
 	//module slug should be the same as grandparent folder name
 	if($moduleSlug != MODULE_SLUG){
