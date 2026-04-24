@@ -4,6 +4,7 @@
 ### Added
 
 ### Changed
+- from module to plugin
 
 ### Fixed
 
