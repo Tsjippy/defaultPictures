@@ -5,6 +5,7 @@
 
 ### Changed
 - from module to plugin
+- plugin name
 
 ### Fixed
 
