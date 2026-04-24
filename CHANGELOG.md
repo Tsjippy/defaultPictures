@@ -8,6 +8,7 @@
 - plugin name
 
 ### Fixed
+- pluginpath constant
 
 ### Updated
 
