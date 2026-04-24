@@ -11,7 +11,7 @@ function setDefaultPicture($postId){
          return;
     }
 
-    $pictureIds    = SIM\getModuleOption(MODULE_SLUG, 'picture-ids');
+    $pictureIds    = SETTINGS['picture-ids'] ?? [];
     $categories    = get_the_category( $postId );
 
     $pictureSet    = false;
