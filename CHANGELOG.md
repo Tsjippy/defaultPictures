@@ -7,6 +7,7 @@
 ### Changed
 - from module to plugin
 - plugin name
+- sim prefix to tsjippy prefix
 
 ### Fixed
 - pluginpath constant
