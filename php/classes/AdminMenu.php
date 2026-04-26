@@ -1,7 +1,7 @@
 <?php
-namespace SIM\DEFAULTPICTURES;
-use SIM;
-use SIM\ADMIN;
+namespace TSJIPPY\DEFAULTPICTURES;
+use TSJIPPY;
+use TSJIPPY\ADMIN;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -29,20 +29,20 @@ class AdminMenu extends ADMIN\SubAdminMenu{
                 $tax	= $postType.'type';
             }
 
-            SIM\addElement('h3', $parent, [], "Default pictures for {$postType}s");
-            SIM\addElement('h4', $parent, [], "Default picture for $postType");
+            TSJIPPY\addElement('h3', $parent, [], "Default pictures for {$postType}s");
+            TSJIPPY\addElement('h4', $parent, [], "Default picture for $postType");
             $this->pictureSelector($postType, ucfirst($postType), $parent);            
 
             $categories	= get_terms(['hide_empty' => false, 'taxonomy' => $tax]);
 
             if(!empty($categories)){
-                SIM\addElement('h4', $parent, [], "Default pictures per category for {$postType}s");
+                TSJIPPY\addElement('h4', $parent, [], "Default pictures per category for {$postType}s");
                 foreach($categories as $category){
                     $this->pictureSelector($category->slug, $category->name, $parent);
-                    SIM\addElement('br', $parent);
+                    TSJIPPY\addElement('br', $parent);
                 }
-                SIM\addElement('br', $parent);
-                SIM\addElement('br', $parent);
+                TSJIPPY\addElement('br', $parent);
+                TSJIPPY\addElement('br', $parent);
             }
         }
 

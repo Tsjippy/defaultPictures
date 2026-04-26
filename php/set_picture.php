@@ -1,6 +1,6 @@
 <?php
-namespace SIM\DEFAULTPICTURES;
-use SIM;
+namespace TSJIPPY\DEFAULTPICTURES;
+use TSJIPPY;
 
 /**
  * Set the default picture of a post
