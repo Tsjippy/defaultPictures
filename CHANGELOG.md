@@ -8,6 +8,7 @@
 - from module to plugin
 - plugin name
 - sim prefix to tsjippy prefix
+- base namespace to TSJIPPY
 
 ### Fixed
 - pluginpath constant
