@@ -5,7 +5,7 @@ use TSJIPPY;
 /**
  * Plugin Name:  		Tsjippy Default Pictures
  * Description:  		This plugin allows you to set a default picture for each category on the website.<br>This picture will be used in case content gets created with this category set and no featured image is set.
- * Version:      		1.0.0
+ * Version:      		10.0.0
  * Author:       		Ewald Harmsen
  * AuthorURI:			harmseninnigeria.nl
  * Requires at least:	6.3
