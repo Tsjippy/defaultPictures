@@ -30,7 +30,7 @@ function setDefaultPicture($postId){
     if(!$pictureSet){
         # If the posttype has a default picture set
         $postType      = get_post_type($postId);
-        if(is_numeric($pictureIds[$postType])){
+        if(!empty($pictureIds[$postType]) && is_numeric($pictureIds[$postType])){
             # Set the picture
             set_post_thumbnail( $postId, $pictureIds[$postType]);
         }
