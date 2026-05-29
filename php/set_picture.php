@@ -2,6 +2,8 @@
 namespace TSJIPPY\DEFAULTPICTURES;
 use TSJIPPY;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Set the default picture of a post
  * @param  	int 	$postId		The WP_Post id
