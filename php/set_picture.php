@@ -2,53 +2,53 @@
 namespace TSJIPPY\DEFAULTPICTURES;
 use TSJIPPY;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined('ABSPATH')) exit;
 
 /**
  * Set the default picture of a post
- * @param  	int 	$postId		The WP_Post id
+ * @param      int     $postId        The WP_Post id
 */
-function setDefaultPicture($postId){
-    if(has_post_thumbnail($postId)){
+function setDefaultPicture($postId) {
+    if (has_post_thumbnail($postId)) {
          return;
     }
 
     $pictureIds    = SETTINGS['picture-ids'] ?? [];
-    $categories    = get_the_category( $postId );
+    $categories    = get_the_category($postId);
 
     $pictureSet    = false;
     # Loop over all categories of this post
-    foreach($categories as $category){
+    foreach ($categories as $category) {
         # If the current category has a default picture set
-        if(is_numeric($pictureIds[$category->slug])){
+        if (is_numeric($pictureIds[$category->slug])) {
             # Set the picture
-            set_post_thumbnail( $postId, $pictureIds[$category->slug]);
+            set_post_thumbnail($postId, $pictureIds[$category->slug]);
             $pictureSet    = true;
             break;
         }
     }
-	
+
     # Still no picture set
-    if(!$pictureSet){
+    if (!$pictureSet) {
         # If the posttype has a default picture set
         $postType      = get_post_type($postId);
-        if(!empty($pictureIds[$postType]) && is_numeric($pictureIds[$postType])){
+        if (!empty($pictureIds[$postType]) && is_numeric($pictureIds[$postType])) {
             # Set the picture
-            set_post_thumbnail( $postId, $pictureIds[$postType]);
+            set_post_thumbnail($postId, $pictureIds[$postType]);
         }
     }
 }
 
-add_action('tsjippy_after_post_save', __NAMESPACE__.'\afterPostSave');
-function afterPostSave($post){
+add_action('tsjippy_after_post_save', __NAMESPACE__ . '\afterPostSave');
+function afterPostSave($post) {
     //check if we need to set an default image
     setDefaultPicture($post->ID);
 }
 
 //If no featured image on post is set, set one
-add_action( 'wp_after_insert_post', __NAMESPACE__.'\afterInsertPost', 10, 2 );
-function afterInsertPost( $postId, $post) {
-	if($post->post_status == "publish"){
+add_action('wp_after_insert_post', __NAMESPACE__ . '\afterInsertPost', 10, 2);
+function afterInsertPost($postId, $post) {
+    if ($post->post_status == "publish") {
         setDefaultPicture($postId);
-	}
+    }
 }
