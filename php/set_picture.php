@@ -1,16 +1,19 @@
 <?php
+
 namespace TSJIPPY\DEFAULTPICTURES;
+
 use TSJIPPY;
 
-if ( ! defined('ABSPATH')) exit;
+if (! defined('ABSPATH')) exit;
 
 /**
  * Set the default picture of a post
  * @param      int     $postId        The WP_Post id
-*/
-function setDefaultPicture($postId) {
+ */
+function setDefaultPicture($postId)
+{
     if (has_post_thumbnail($postId)) {
-         return;
+        return;
     }
 
     $pictureIds    = SETTINGS['picture-ids'] ?? [];
@@ -40,14 +43,16 @@ function setDefaultPicture($postId) {
 }
 
 add_action('tsjippy_after_post_save', __NAMESPACE__ . '\afterPostSave');
-function afterPostSave($post) {
+function afterPostSave($post)
+{
     //check if we need to set an default image
     setDefaultPicture($post->ID);
 }
 
 //If no featured image on post is set, set one
 add_action('wp_after_insert_post', __NAMESPACE__ . '\afterInsertPost', 10, 2);
-function afterInsertPost($postId, $post) {
+function afterInsertPost($postId, $post)
+{
     if ($post->post_status == "publish") {
         setDefaultPicture($postId);
     }

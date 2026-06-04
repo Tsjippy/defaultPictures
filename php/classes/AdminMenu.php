@@ -1,13 +1,16 @@
 <?php
+
 namespace TSJIPPY\DEFAULTPICTURES;
+
 use TSJIPPY;
 use TSJIPPY\ADMIN;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
-class AdminMenu extends ADMIN\SubAdminMenu{
+class AdminMenu extends ADMIN\SubAdminMenu
+{
 
     /**
      * AdminMenu constructor.
@@ -15,24 +18,26 @@ class AdminMenu extends ADMIN\SubAdminMenu{
      * @param array $settings The settings for the plugin
      * @param string $name The name of the plugin
      */
-    public function __construct($settings, $name) {
+    public function __construct($settings, $name)
+    {
         parent::__construct($settings, $name);
     }
 
-    public function settings($parent) {
+    public function settings($parent)
+    {
         //Get all post types
         $args = array(
             'public'   => true,
             '_builtin' => false
-       );
+        );
 
         $postTypes = array_merge(get_post_types($args, 'names', 'and'), ['post']);
 
         foreach ($postTypes as $postType) {
             if ($postType == 'post') {
                 $tax    = 'category';
-            }else{
-                $tax    = $postType. 'type';
+            } else {
+                $tax    = $postType . 'type';
             }
 
             TSJIPPY\addElement('h3', $parent, [], "Default pictures for {$postType}s");
@@ -55,16 +60,18 @@ class AdminMenu extends ADMIN\SubAdminMenu{
         return true;
     }
 
-    public function emails($parent) {
+    public function emails($parent)
+    {
         return false;
     }
 
-    public function data($parent) {
+    public function data($parent)
+    {
         return false;
     }
 
-    public function functions($parent) {
+    public function functions($parent)
+    {
         return false;
     }
-
 }
