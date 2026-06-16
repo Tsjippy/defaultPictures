@@ -42,7 +42,7 @@ function setDefaultPicture($postId)
     }
 }
 
-add_action('tsjippy_after_post_save', __NAMESPACE__ . '\afterPostSave');
+add_action('tsjippy-after-post-save', __NAMESPACE__ . '\afterPostSave');
 function afterPostSave($post)
 {
     //check if we need to set an default image
