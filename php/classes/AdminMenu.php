@@ -37,7 +37,7 @@ class AdminMenu extends ADMIN\SubAdminMenu
             if ($postType == 'post') {
                 $tax    = 'category';
             } else {
-                $tax    = $postType . 'type';
+                $tax    = $postType . 's';
             }
 
             TSJIPPY\addElement('h3', $parent, [], "Default pictures for {$postType}s");
@@ -45,6 +45,11 @@ class AdminMenu extends ADMIN\SubAdminMenu
             $this->pictureSelector($postType, ucfirst($postType), $parent);
 
             $categories    = get_terms(['hide_empty' => false, 'taxonomy' => $tax]);
+
+            if(is_wp_error($categories)){
+                TSJIPPY\printArray("$tax not found");
+                continue;
+            }
 
             if (!empty($categories)) {
                 TSJIPPY\addElement('h4', $parent, [], "Default pictures per category for {$postType}s");
