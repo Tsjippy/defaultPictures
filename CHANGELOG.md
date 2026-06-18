@@ -4,13 +4,20 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+### Updated
+
+## [10.1.4] - 2026-06-18
+
+
+### Changed
 - hook and filer name update
 - prefix all hooks with plugin name
 
 ### Fixed
 - get taxonomy
-
-### Updated
 
 ## [10.1.3] - 2026-06-15
 
