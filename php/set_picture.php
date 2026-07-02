@@ -48,6 +48,11 @@ function setDefaultPicture($postId)
  * @param   \WP_Post    $post       The new or updated post
  */
 add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave');
+/**
+ * Set the default picture of a post after it is saved
+ *
+ * @param    \WP_Post    $post        The WP_Post object
+ */
 function afterPostSave($post)
 {
     //check if we need to set an default image
@@ -56,6 +61,12 @@ function afterPostSave($post)
 
 //If no featured image on post is set, set one
 add_action('wp_after_insert_post', __NAMESPACE__ . '\afterInsertPost', 10, 2);
+/**
+ * Set the default picture of a post after it is inserted
+ *
+ * @param    int        $postId        The WP_Post id
+ * @param    \WP_Post    $post        The WP_Post object
+ */
 function afterInsertPost($postId, $post)
 {
     if ($post->post_status == "publish") {

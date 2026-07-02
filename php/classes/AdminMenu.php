@@ -23,6 +23,12 @@ class AdminMenu extends ADMIN\SubAdminMenu
         parent::__construct($settings, $name);
     }
 
+    /**
+     * Render the settings page
+     *
+     * @param    string        $parent        The parent menu slug
+     * @return    boolean        True on success, false on failure
+     */
     public function settings($parent)
     {
         //Get all post types
@@ -65,16 +71,32 @@ class AdminMenu extends ADMIN\SubAdminMenu
         return true;
     }
 
+    /**
+     * Render the emails tab
+     *
+     * @param    string        $parent        The parent menu slug
+     * @return    void
+     */
     public function emails($parent)
     {
         return false;
     }
 
+    /**
+     * Render the data tab
+     * @param    string        $parent        The parent menu slug
+     * @return    void
+     */
     public function data($parent)
     {
         return false;
     }
 
+    /**
+     * Render the functions tab
+     * @param    string        $parent        The parent menu slug
+     * @return    void
+     */
     public function functions($parent)
     {
         return false;
