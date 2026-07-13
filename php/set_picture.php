@@ -42,11 +42,6 @@ function setDefaultPicture($postId)
     }
 }
 
-/**
- * Allow comments
- * 
- * @param   \WP_Post    $post       The new or updated post
- */
 add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave');
 /**
  * Set the default picture of a post after it is saved

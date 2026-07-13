@@ -24,10 +24,11 @@ class AdminMenu extends ADMIN\SubAdminMenu
     }
 
     /**
-     * Render the settings page
+     * Add the settings page to the admin menu
      *
-     * @param    string        $parent        The parent menu slug
-     * @return    boolean        True on success, false on failure
+     * @param \DOMElement $parent The parent menu slug
+     * 
+     * @return bool True if the settings page was added, false otherwise
      */
     public function settings($parent)
     {
