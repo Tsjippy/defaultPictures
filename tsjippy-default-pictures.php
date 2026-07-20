@@ -15,7 +15,7 @@ use TSJIPPY;
  * Tested up to:         7.0
  * Plugin URI:            https://github.com/Tsjippy/defaultpictures/
  * Tested:               7.0
- * TextDomain:            tsjippy
+ * TextDomain:           tsjippy
  * Requires Plugins:    
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
